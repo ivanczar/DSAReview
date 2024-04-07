@@ -1,66 +1,61 @@
-class LinkedList { 
+class LinkedList {
 
-    Node head = null;
+	Node head = null;
 
-    public LinkedList(String data) {
-        this.head = new Node(data);
-    }
+	public LinkedList() {
+		this.head = new Node(null);
+	}
 
+	public void add(String data) {
+		Node newNode = new Node(data);
+		newNode.next = this.head;
+		this.head = newNode;
+	}
 
-    public void add(String data) {
-        Node newNode = new Node(data);
-        newNode.next = this.head;
-        this.head = newNode;
-    }
+	public void remove(String data) {
 
-    public String toString() {
-        Node currentNode = this.head;
-        String list = "";
-        while(currentNode.next != null) {
-            list += currentNode.data;
-            currentNode = currentNode.next;
-            
-            if (currentNode.next != null){
-                list += ", ";
-            }
+	}
 
-        }
-        return "List: " + list;
-    }
+	public String toString() {
+		Node currentNode = this.head;
+		String list = "";
+		while (currentNode.next != null) {
+			list += currentNode.data;
+			currentNode = currentNode.next;
 
-    
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList("Ivan");
-        list.add(("Dom"));
-        list.add(("Lucas"));
-        list.add(("Cacaca"));
-        list.add(("awdawd"));
+			if (currentNode.next != null) {
+				list += ", ";
+			}
 
+		}
+		return "List: " + list;
+	}
 
-        System.out.println(list);
+	public static void main(String[] args) {
+		LinkedList list = new LinkedList();
+		list.add(("Dom"));
+		list.add(("Lucas"));
+		list.add(("Cacaca"));
+		list.add(("awdawd"));
 
-    }
+		System.out.println(list);
 
+	}
 
+	static class Node {
 
-    static class Node {
+		String data;
+		Node next;
 
-        String data;
-        Node next;
-    
-        public Node(String data) {
-            this.data = data;
-            this.next = null; 
-        }
-    
-        public String toString() {
-            return data;
-        }
-    
-    
-    }
-   
+		public Node(String data) {
+			this.data = data;
+			this.next = null;
+		}
+
+		public String toString() {
+			return data;
+		}
+
+	}
+
 }
-
-
-
