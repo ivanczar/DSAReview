@@ -15,10 +15,14 @@ class ArrayTest {
         return res;
     }
 
+
+    // Worst case: O(n^2) - array completely unsorted
+    // Best case: O(n) - array almost sorted
     public void bubbleSort() {
 
         for (int i = 0; i <= arr.length ; i++) {
-            for (int j = 1; j < (arr.length) ; j++) {
+            // -i prevents looping through the already sorted section
+            for (int j = 1; j < (arr.length - i) ; j++) {
 
                 if (arr[j-1] > arr[j]) {
                     int temp = arr[j];
